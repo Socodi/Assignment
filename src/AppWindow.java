@@ -33,7 +33,9 @@ public class AppWindow {
                 btnRun.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
+                                tournament tourny = new tournament();
 
+                                txtResults.append(tourny.runRound());
                         }
                 });
                 btnImport.addActionListener(new ActionListener() {
