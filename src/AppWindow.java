@@ -41,6 +41,8 @@ public class AppWindow {
                 btnImport.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
+                                txtPlayers.setText("");
+
                                 String jsonFile = "Data/players.json";
 
                                 Gson gson = new Gson();
