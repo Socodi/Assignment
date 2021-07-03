@@ -33,9 +33,7 @@ public class AppWindow {
                 btnRun.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                                tournament tourny = new tournament();
 
-                                txtResults.append(tourny.runRound());
                         }
                 });
                 btnImport.addActionListener(new ActionListener() {
@@ -91,7 +89,7 @@ public class AppWindow {
 
                                         for (player player : players)
                                         {
-                                                txtPlayers.append(player.id + ": " + player.firstName + " " + player.lastName + "\n");
+                                                txtPlayers.append(player.getId() + ": " + player.getFirstName() + " " + player.getLastName() + "\n");
 
                                                 float progress = prgsProgress.getValue();
 

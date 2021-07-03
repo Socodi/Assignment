@@ -1,13 +1,8 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class match {
-    ArrayList<player> players;
-
-    public match(ArrayList<player> players) {
-        this.players = players;
-    }
-
-    public void decideWinner(ArrayList<player> players) {
+    public int decideWinner(List<player> players) {
         // Create a separate NAMED object of each player.
         player playerOne = new player(players.get(1).getId(), players.get(1).getFirstName(), players.get(1).getLastName(), players.get(1).getScore());
         player playerTwo = new player(players.get(2).getId(), players.get(2).getFirstName(), players.get(2).getLastName(), players.get(2).getScore());
@@ -16,13 +11,17 @@ public class match {
         int playerOneScore = playerOne.genScore();
         int playerTwoScore = playerTwo.genScore();
 
+        int winner = 0;
+
         // Player 1 came out on top
         if (playerOneScore > playerTwoScore) {
             System.out.println("Player 1 wins.");
+            winner = 1;
         }
         // Player 2 came out on top
         else if (playerOneScore < playerTwoScore) {
             System.out.println("Player 2 wins.");
+            winner = 2;
         }
         else if (playerOneScore == playerTwoScore) {
             // Scores are the same, we need to tiebreak
@@ -31,14 +30,20 @@ public class match {
             //Player one wins?
             if (result == 1) {
                 System.out.println("Player 1 wins.");
+                winner = 1;
             }
             //Player two wins?
             else if (result == 2) {
                 System.out.println("Player 2 wins.");
+                winner = 2;
             }
         }
+
+        // Return who one, 1 or 2 (int)
+        return winner;
     }
 
+    // Generate 1 or 2 to decide winner in case of tiebreak
     public int tieBreak() {
         // Generate 1 or 2
         // If less than 0.5 then 1, otherwise 2

@@ -1,8 +1,8 @@
 public class player {
-    int id;
-    String firstName;
-    String lastName;
-    int score;
+    private int id;
+    private String firstName;
+    private String lastName;
+    private int score;
 
     public int getId() { return id; }
 
@@ -34,6 +34,7 @@ public class player {
         this.score = score;
     }
 
+    // Generate a score between 0 and 3
     public int genScore() {
         int score = 0;
 
