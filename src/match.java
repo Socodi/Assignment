@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.List;
 
 public class match {
@@ -11,16 +10,19 @@ public class match {
         int playerOneScore = playerOne.genScore();
         int playerTwoScore = playerTwo.genScore();
 
+        players.get(0).setScore(playerOneScore);
+        players.get(1).setScore(playerTwoScore);
+
         int winner = 0;
 
         // Player 1 came out on top
         if (playerOneScore > playerTwoScore) {
-            System.out.println("Player 1 wins: " + playerOneScore + "-" + playerTwoScore);
+            System.out.println(playerOne.getFirstName() + " " + playerOne.getLastName() + " wins: " + playerOneScore + "-" + playerTwoScore);
             winner = 1;
         }
         // Player 2 came out on top
         else if (playerOneScore < playerTwoScore) {
-            System.out.println("Player 2 wins: " + playerTwoScore + "-" + playerOneScore);
+            System.out.println(playerTwo.getFirstName() + " " + playerTwo.getLastName() + " wins: " + playerTwoScore + "-" + playerOneScore);
             winner = 2;
         }
         else if (playerOneScore == playerTwoScore) {
@@ -29,12 +31,12 @@ public class match {
 
             //Player one wins?
             if (result == 1) {
-                System.out.println("Player 1 wins: " + playerOneScore + "-" + playerTwoScore + ", with a tiebreak.");
+                System.out.println(playerOne.getFirstName() + " " + playerOne.getLastName() + " wins: " + playerOneScore + "-" + playerTwoScore + ", with a tiebreak.");
                 winner = 1;
             }
             //Player two wins?
             else if (result == 2) {
-                System.out.println("Player 2 wins: " + playerTwoScore + "-" + playerOneScore + ", with a tiebreak.");
+                System.out.println(playerTwo.getFirstName() + " " + playerTwo.getLastName() + " wins: " + playerTwoScore + "-" + playerOneScore + ", with a tiebreak.");
                 winner = 2;
             }
         }
@@ -47,7 +49,7 @@ public class match {
     public int tieBreak() {
         // Generate 1 or 2
         // If less than 0.5 then 1, otherwise 2
-        int temp = (Math.random() <= 0.5) ? 1 : 2;;
+        int temp = (Math.random() <= 0.5) ? 1 : 2;
 
         return temp;
     }

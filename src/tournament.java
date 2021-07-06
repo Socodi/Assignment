@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class tournament {
     player winner;
-    String resultText;
+    String resultText = "";
     ArrayList<player> nextPlayers;
 
     public tournamentResult runTournament(ArrayList<player> players) {

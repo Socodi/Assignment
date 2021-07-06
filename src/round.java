@@ -18,18 +18,22 @@ public class round {
 
         for (List<player> list : lists) {
             match match = new match();
+            results = "";
 
             int winner = match.decideWinner(list);
+
+            String playerOne = list.get(0).getFirstName() + " " + list.get(0).getLastName();
+            String playerTwo = list.get(1).getFirstName() + " " + list.get(1).getLastName();
 
             // Should only return 1 or 2
             if (winner == 0) {
                 System.out.println("Something has gone horribly wrong.");
             }
             else if (winner == 1) {
-                results += "Player 1 has won, and beaten Player 2." + "\n";
+                results += playerOne + " has won, and beaten " + playerTwo + "\n";
             }
             else if (winner == 2 ) {
-                results += "Player 2 has won, and beaten Player 1." + "\n";
+                results += playerTwo + " has won, and beaten " + playerOne + "\n";
             }
 
             // Create result object, to hold text needed for user, and player for next round.

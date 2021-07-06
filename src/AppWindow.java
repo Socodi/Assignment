@@ -37,7 +37,7 @@ public class AppWindow {
 
                                 Gson gson = new Gson();
 
-                                FileReader fileReader = null;
+                                FileReader fileReader;
                                 try {
                                         fileReader = new FileReader(jsonFile);
                                         JsonReader jsonReader = new JsonReader(fileReader);
@@ -93,7 +93,7 @@ public class AppWindow {
 
                                 Gson gson = new Gson();
 
-                                FileReader fileReader = null;
+                                FileReader fileReader;
                                 try {
                                         fileReader = new FileReader(jsonFile);
                                         JsonReader jsonReader = new JsonReader(fileReader);
