@@ -11,9 +11,10 @@ public class round {
 
     public void setPlayers(ArrayList<player> players) { this.players = players; }
 
-    public void runRound(ArrayList<player> players) {
+    public ArrayList<roundResult> runRound(ArrayList<player> players) {
         ArrayList<List<player>> lists = splitPlayers(players);
-        String results = null;
+        String results = "";
+        ArrayList<roundResult> resultsToReturn = new ArrayList<>();
 
         for (List<player> list : lists) {
             match match = new match();
@@ -30,7 +31,15 @@ public class round {
             else if (winner == 2 ) {
                 results += "Player 2 has won, and beaten Player 1." + "\n";
             }
+
+            // Create result object, to hold text needed for user, and player for next round.
+            roundResult result = new roundResult(results, list.get(winner - 1));
+
+            // Add to list to return
+            resultsToReturn.add(result);
         }
+
+        return resultsToReturn;
     }
 
     // Split the list of players into sub lists of size 2 (create pairs to run matches with)

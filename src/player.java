@@ -46,6 +46,8 @@ public class player {
 
         System.out.println("whole score: " + score);
 
+        this.setScore(this.getScore() + score);
+
         return score;
     }
 }

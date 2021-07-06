@@ -4,8 +4,8 @@ import java.util.List;
 public class match {
     public int decideWinner(List<player> players) {
         // Create a separate NAMED object of each player.
-        player playerOne = new player(players.get(1).getId(), players.get(1).getFirstName(), players.get(1).getLastName(), players.get(1).getScore());
-        player playerTwo = new player(players.get(2).getId(), players.get(2).getFirstName(), players.get(2).getLastName(), players.get(2).getScore());
+        player playerOne = new player(players.get(0).getId(), players.get(0).getFirstName(), players.get(0).getLastName(), players.get(0).getScore());
+        player playerTwo = new player(players.get(1).getId(), players.get(1).getFirstName(), players.get(1).getLastName(), players.get(1).getScore());
 
         // What did each player score this match? Out of 3
         int playerOneScore = playerOne.genScore();
@@ -15,12 +15,12 @@ public class match {
 
         // Player 1 came out on top
         if (playerOneScore > playerTwoScore) {
-            System.out.println("Player 1 wins.");
+            System.out.println("Player 1 wins: " + playerOneScore + "-" + playerTwoScore);
             winner = 1;
         }
         // Player 2 came out on top
         else if (playerOneScore < playerTwoScore) {
-            System.out.println("Player 2 wins.");
+            System.out.println("Player 2 wins: " + playerTwoScore + "-" + playerOneScore);
             winner = 2;
         }
         else if (playerOneScore == playerTwoScore) {
@@ -29,12 +29,12 @@ public class match {
 
             //Player one wins?
             if (result == 1) {
-                System.out.println("Player 1 wins.");
+                System.out.println("Player 1 wins: " + playerOneScore + "-" + playerTwoScore + ", with a tiebreak.");
                 winner = 1;
             }
             //Player two wins?
             else if (result == 2) {
-                System.out.println("Player 2 wins.");
+                System.out.println("Player 2 wins: " + playerTwoScore + "-" + playerOneScore + ", with a tiebreak.");
                 winner = 2;
             }
         }
